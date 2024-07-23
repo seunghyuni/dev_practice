@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animation Basic</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script> 
+    <script>
+        $(document).ready(function() {
+            let clearQueue = false;
+            let goToEnd = false;
+            // 이벤트를 연결합니다
+            $('#clearQueue').change(function() {
+                clearQueue = $(this).prop('checked');
+            });
+
+            $('#goToend').change(function () {
+                goToEnd = $(this).prop('checked');
+            });
+            
+            $('#stopButton').click(function () {
+                $('#box').stop(clearQueue, goToEnd);
+            });
+
+            //스타일을 변경합니다
+        })
+    </script>
+
+</head>
+<body>
+    
+</body>
+</html>

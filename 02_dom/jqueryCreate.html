@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>jquery Create</title>
+    <script src="https://code.jquery.com/jquery-3.6.4.js"></script>
+    <script>
+        //이벤트를 연결합니다
+        $(document).ready(function () {
+        // 문서 객체를 생성합니다. 
+            $('<h1>Create Document Object By jQuery</h1>') 
+        });
+    </script> 
+    <script>
+        //이벤트를 연결합니다
+        $(document).ready(function () {      
+            //10회 반복합니다
+            for (let i = 0; i < 10; i++) {
+            //문서객체를 생성합니다
+          
+            $('<h1>Create Document Object + ' + i +'</h1>').css({
+                backgroundColor: 'black',
+                color: 'red'               
+            }).appendTo('body');
+            }
+        });
+    </script>
+    <script>
+        $(document).ready(function () {
+            //10회 반복합니다
+            for (let i = 0; i < 10; i++) {
+                //문서객체를 생성
+                let $dynamic = $('<h1>Create Document Object + ' + i +'</h1>').css({
+                    backgroundColor: 'black', 
+                    color: 'red' 
+                });
+                $('body').append($dynamic);
+            }
+        });
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
