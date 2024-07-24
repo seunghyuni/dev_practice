@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dociment addEventListener</title>
+    <script>/*
+        document.addEventListener('DOMContentLoaded', () =>{
+            const rects = document.querySelectorAll('.rect')
+
+            rects.forEach((rects, index) => {
+                const width = (index + 1)* 100
+                const src = 'https://placekitten.com/${width}/250'
+                rect.setAttribute('src', src)
+            })
+        })*/
+    </script>
+
+    <script>/*
+        document.addEventListener('DOMContentLoaded', () =>{
+            //문서객체 생성
+            const header = document.createElement('h1')
+
+            //생성한 태그 조작하기
+            header.textContent = "문서객체 동적으로 생성하기"
+            header.setAttribute('data-custom', '사용자 정의속성')
+            header.style.color = 'white'
+            header.style.backgroundColor = 'black'
+
+            //h1 태그를 body태그 아래에 추가하기
+            document.body.appendChild(header)
+        })*/
+    </script>
+
+    <script>
+        //section 7-1-9
+        document.addEventListener('DomContentLoader', () =>{
+            //문서객체 읽어들이고 생성하기
+            const divA = document.querySelector('#first')
+            const divB = document.querySelector('#second')
+            const h1 = document.createElement('h1')
+            h1.textContent = '이동하는 h1 태그'
+
+            //서로 번갈아가며 실행하는 함수를 구현
+            const toFirst = () =>{
+                divA.appendChild(h1)
+                setTimeout(toSecond, 1000) 
+            }
+            const toSecond = () =>{
+                divB.appendChild(h1)
+                setTimeout(toFirst, 10000)
+            }
+            toFirst()
+        })
+    </script>
+</head>
+
+<body>
+
+    <div id="first">
+        <h1>첫번째 div 태그내부</h1>
+    </div>
+    <hr>
+    <div id="second">
+        <hr>두번째 div 태그내부</h1>
+    </div>
+
+</body>
+</html>
