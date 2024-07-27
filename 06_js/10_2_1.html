@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-2-1 컴포넌트만들기</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //애플리케이션클래스 생성하기
+        class App extends React.Component {
+            render () {
+                return <ul>
+                    <Item/>
+                    <Item/>
+                    <Item/>
+                    </ul>
+            }
+        }
+
+        class Item extends React.Component {
+            render () {
+                return <li>item 컴포넌트</li>
+            }
+        }
+
+        //출력하기
+        const container = document.getElementById('root')
+        ReactDOM.render(<App/>, container)
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-1-12 컴포넌트 배열</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        //애플리케이션 클래스생성
+        class App extends React.Component {
+            constructor (props) {
+                super(props)
+                this.state = {
+                    fruits: ['사과', '바나나', '배', '귤']
+                }
+            }
+
+            render () {
+                //함목을 생성합니다
+                const list = this.state.fruits.map((item) => {
+                    return <li>{item}</li>
+                })
+                //출력합니다
+                return <ul>{list}</ul>
+            }
+        }
+
+        //출력하기
+        const container = document.getElementById('root')
+        ReactDOM.render(<App/>, container)
+    </script>
+</body>
+</html>

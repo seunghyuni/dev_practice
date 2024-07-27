@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>10-2-3 item컴포넌트에 속성전달</title>
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+    <script type="text/babel">
+        class App extends React.Component {
+            constructor (props) {
+                super(props)
+                this.state = {
+                    time: new Date()
+                }
+            }
+
+            componentDidMount () {
+                //컴포넌트가 화면에 출력되었을때
+                this.timerId = setInterval(() => {
+                    this.setState({
+                        time: new Date()
+                    })
+                }, 1000)
+            }
+
+            componentWillUnmount () {
+                //컴포넌트가 화면에서 제거될때
+                clearInterval(this.timerId)
+            }
+
+            render () {
+                return <ul>
+                    <item value={this.state.time.toLocaleString()}/>
+                    <item value={this.state.time.toLocaleString()}/>
+                    <item value={this.state.time.toLocaleString()}/>
+                    </ul>
+            }
+        }
+
+        class Item extends React.Component {
+            constructor (props) {
+                super(props)
+                this.state = {
+                    value: props.value
+                }
+            }
+
+            componentDidUpdate (prevProps) {
+                if (prevProps.value !== this.props.value) {
+                    this.setState({
+                        value: this.props.value
+                    })
+                }
+            }
+
+            render () {
+                return <li>{this.state.value}</li>
+            }
+        }
+
+        //출력하기
+        const container = document.getElementById('root')
+        ReactDOM.render(<App/>, container)
+
+    </script>
+</body>
+</html>
